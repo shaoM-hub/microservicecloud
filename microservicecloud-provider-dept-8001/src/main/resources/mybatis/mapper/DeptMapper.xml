@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.sprongcloud.dao.DeptDao">
+
+    <select id="findById" resultType="Dept" parameterType="Long">
+        select dep_tno,d_name,db_source from dept
+        where dep_tno=#{id}
+    </select>
+
+    <select id="findAll" resultType="Dept">
+        select * from dept
+    </select>
+
+    <insert id="addDept" parameterType="Dept">
+        insert into dept(d_name,db_source) values(#{dName},DATABASE())
+    </insert>
+
+    <insert id="insertDept" parameterType="String">
+        insert into dept(d_name,db_source) values(#{dName},DATABASE())
+    </insert>
+
+
+</mapper>
